@@ -1,0 +1,611 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "../vendor/shadcn-tailwind-4.13.0.css";
+
+/* ============================================================
+   慢病用药提醒助手 · 视觉基调
+   「暖纸 + 药房松绿 + 分时段药盒」
+   ============================================================ */
+
+:root {
+  /* —— 工作台可调参数（Nudge）—— */
+  --site-bg: #f4efe4;
+  --site-fg: #14251f;
+  --site-accent: #0e5a4a;
+  --site-on-accent: #f6fbf8;
+  --site-surface: #fffcf5;
+  --site-muted: #5f6e66;
+  --site-border: #e0d6c3;
+  --site-font: "PingFang SC", "HarmonyOS Sans SC", "Microsoft YaHei",
+    "Source Han Sans SC", "Noto Sans CJK SC", system-ui, sans-serif;
+  --site-radius: 18px;
+  --site-space: 1;
+  --site-type: 1;
+  --site-motion: 1;
+
+  /* —— 应用自身字号倍率（设置里的「标准 / 大 / 特大」）—— */
+  --app-type: 1;
+
+  /* —— 松绿：主色族，承载最大面积 —— */
+  --pine-900: #062b23;
+  --pine-700: #0e5a4a;
+  --pine-500: #17836c;
+  --pine-300: #5fbfa6;
+  --pine-100: #dcefe7;
+
+  /* —— 时段与语义色 —— */
+  --amber-600: #b9760f;
+  --amber-500: #e8a33d;
+  --amber-300: #f5ce86;
+  --amber-100: #fbeed4;
+
+  --azure-600: #1f52b0;
+  --azure-500: #2e6bd6;
+  --azure-300: #93b4ee;
+  --azure-100: #dfe9fb;
+
+  --vermil-600: #b32e22;
+  --vermil-500: #d9483b;
+  --vermil-300: #f0a29a;
+  --vermil-100: #fbe3df;
+
+  --lime-600: #4e7d18;
+  --lime-500: #6fa82c;
+  --lime-300: #b4d68a;
+  --lime-100: #e7f2d6;
+
+  --violet-600: #553a93;
+  --violet-500: #6d4aa8;
+  --violet-300: #b49fdc;
+  --violet-100: #e8e1f6;
+
+  --magenta-500: #c2417e;
+  --magenta-100: #f9e2ec;
+
+  /* —— 中性层：背景 / 表面 / 浮层 / 遮罩 —— */
+  --paper: var(--site-bg);
+  --surface: var(--site-surface);
+  --overlay: #fffdf8;
+  --scrim: rgba(6, 32, 26, 0.58);
+  --ink: var(--site-fg);
+  --ink-soft: var(--site-muted);
+  --line: var(--site-border);
+
+  --shadow-sm: 0 1px 2px rgba(6, 43, 35, 0.06), 0 2px 8px rgba(6, 43, 35, 0.05);
+  --shadow-md: 0 2px 6px rgba(6, 43, 35, 0.07), 0 12px 28px -10px rgba(6, 43, 35, 0.18);
+  --shadow-lg: 0 4px 12px rgba(6, 43, 35, 0.1), 0 28px 60px -22px rgba(6, 43, 35, 0.32);
+
+  /* —— shadcn 令牌映射 —— */
+  --background: var(--site-bg);
+  --foreground: var(--site-fg);
+  --card: var(--site-surface);
+  --card-foreground: var(--site-fg);
+  --popover: var(--overlay);
+  --popover-foreground: var(--site-fg);
+  --primary: var(--site-accent);
+  --primary-foreground: var(--site-on-accent);
+  --secondary: var(--pine-100);
+  --secondary-foreground: var(--pine-900);
+  --muted: #ece5d7;
+  --muted-foreground: var(--site-muted);
+  --accent: var(--amber-100);
+  --accent-foreground: var(--amber-600);
+  --destructive: var(--vermil-500);
+  --border: var(--site-border);
+  --input: var(--site-border);
+  --ring: var(--pine-500);
+  --radius: var(--site-radius);
+
+  --chart-1: #17836c;
+  --chart-2: #e8a33d;
+  --chart-3: #2e6bd6;
+  --chart-4: #d9483b;
+  --chart-5: #6d4aa8;
+  --chart-6: #6fa82c;
+  --chart-7: #c2417e;
+  --chart-8: #0e5a4a;
+
+  --sidebar: var(--pine-900);
+  --sidebar-foreground: #e7f2ec;
+  --sidebar-primary: var(--amber-500);
+  --sidebar-primary-foreground: #2a1a02;
+  --sidebar-accent: #0e3b31;
+  --sidebar-accent-foreground: #e7f2ec;
+  --sidebar-border: #17453a;
+  --sidebar-ring: var(--pine-300);
+}
+
+html[data-theme="dark"] {
+  --site-bg: #0b1a16;
+  --site-fg: #e9f2ec;
+  --site-accent: #3fbfa0;
+  --site-on-accent: #04211b;
+  --site-surface: #122621;
+  --site-muted: #9bb0a6;
+  --site-border: #234039;
+
+  --pine-900: #d7ece3;
+  --pine-700: #3fbfa0;
+  --pine-500: #4fd6b4;
+  --pine-300: #2c7f6b;
+  --pine-100: #14332b;
+
+  --amber-600: #f0b45c;
+  --amber-500: #e8a33d;
+  --amber-300: #7a5518;
+  --amber-100: #33260f;
+
+  --azure-600: #8ab0f5;
+  --azure-500: #5b8ee8;
+  --azure-300: #2b4a80;
+  --azure-100: #132340;
+
+  --vermil-600: #f28b7f;
+  --vermil-500: #e2604f;
+  --vermil-300: #7d2c22;
+  --vermil-100: #3a1712;
+
+  --lime-600: #a8d46a;
+  --lime-500: #86bd3f;
+  --lime-300: #47651f;
+  --lime-100: #1d2a10;
+
+  --violet-600: #bda6ea;
+  --violet-500: #9170d4;
+  --violet-300: #4b3679;
+  --violet-100: #221838;
+
+  --magenta-500: #e0709f;
+  --magenta-100: #3a1729;
+
+  --overlay: #16302a;
+  --scrim: rgba(2, 12, 10, 0.72);
+  --muted: #1a332c;
+  --secondary: #14332b;
+  --secondary-foreground: #d7ece3;
+  --accent: #33260f;
+  --accent-foreground: #f0b45c;
+  --destructive: #e2604f;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.45), 0 12px 28px -12px rgba(0, 0, 0, 0.7);
+  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.5), 0 28px 60px -24px rgba(0, 0, 0, 0.85);
+
+  --sidebar: #061410;
+  --sidebar-foreground: #dcece4;
+  --sidebar-accent: #10281f;
+  --sidebar-border: #1d3a31;
+}
+
+html[data-contrast="high"] {
+  --site-fg: #000000;
+  --site-muted: #2c3a33;
+  --site-border: #7d7059;
+  --site-bg: #fffdf6;
+  --site-surface: #ffffff;
+  --line: #6d6250;
+}
+html[data-theme="dark"][data-contrast="high"] {
+  --site-fg: #ffffff;
+  --site-muted: #cfe0d7;
+  --site-border: #6f8d82;
+  --site-bg: #000000;
+  --site-surface: #0a1a15;
+  --line: #7f9c91;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-overlay: var(--overlay);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+
+  --color-pine-900: var(--pine-900);
+  --color-pine-700: var(--pine-700);
+  --color-pine-500: var(--pine-500);
+  --color-pine-300: var(--pine-300);
+  --color-pine-100: var(--pine-100);
+  --color-amber-600: var(--amber-600);
+  --color-amber-500: var(--amber-500);
+  --color-amber-300: var(--amber-300);
+  --color-amber-100: var(--amber-100);
+  --color-azure-600: var(--azure-600);
+  --color-azure-500: var(--azure-500);
+  --color-azure-300: var(--azure-300);
+  --color-azure-100: var(--azure-100);
+  --color-vermil-600: var(--vermil-600);
+  --color-vermil-500: var(--vermil-500);
+  --color-vermil-300: var(--vermil-300);
+  --color-vermil-100: var(--vermil-100);
+  --color-lime-600: var(--lime-600);
+  --color-lime-500: var(--lime-500);
+  --color-lime-300: var(--lime-300);
+  --color-lime-100: var(--lime-100);
+  --color-violet-600: var(--violet-600);
+  --color-violet-500: var(--violet-500);
+  --color-violet-300: var(--violet-300);
+  --color-violet-100: var(--violet-100);
+  --color-magenta-500: var(--magenta-500);
+  --color-magenta-100: var(--magenta-100);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-chart-6: var(--chart-6);
+  --color-chart-7: var(--chart-7);
+  --color-chart-8: var(--chart-8);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
+  --radius-2xl: calc(var(--radius) + 14px);
+
+  --font-sans: var(--site-font);
+  --font-mono: "SFMono-Regular", "Cascadia Mono", Menlo, Consolas, monospace;
+
+  --spacing: calc(0.25rem * var(--site-space));
+  --text-xs: calc(0.8125rem * var(--site-type) * var(--app-type));
+  --text-sm: calc(0.9375rem * var(--site-type) * var(--app-type));
+  --text-base: calc(1.125rem * var(--site-type) * var(--app-type));
+  --text-lg: calc(1.3125rem * var(--site-type) * var(--app-type));
+  --text-xl: calc(1.5625rem * var(--site-type) * var(--app-type));
+  --text-2xl: calc(1.9375rem * var(--site-type) * var(--app-type));
+  --text-3xl: calc(2.4375rem * var(--site-type) * var(--app-type));
+  --text-4xl: calc(3.0625rem * var(--site-type) * var(--app-type));
+  --text-5xl: calc(3.875rem * var(--site-type) * var(--app-type));
+  --text-6xl: calc(4.75rem * var(--site-type) * var(--app-type));
+  --text-7xl: calc(5.75rem * var(--site-type) * var(--app-type));
+  --text-8xl: calc(7rem * var(--site-type) * var(--app-type));
+  --text-9xl: calc(8.5rem * var(--site-type) * var(--app-type));
+
+  --default-transition-duration: calc(180ms * var(--site-motion));
+}
+
+@layer base {
+  * {
+    border-color: var(--line);
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--site-font);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    overscroll-behavior-y: none;
+    font-synthesis-weight: none;
+  }
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    transition-duration: calc(180ms * var(--site-motion));
+  }
+  button {
+    cursor: pointer;
+    font-family: inherit;
+  }
+  :focus-visible {
+    outline: 3px solid var(--pine-500);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  h1,
+  h2,
+  h3 {
+    line-height: 1.22;
+    letter-spacing: -0.01em;
+    font-weight: 800;
+  }
+  ::selection {
+    background: var(--amber-300);
+    color: var(--pine-900);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+/* —— 滚动条：用应用自己的色彩语言 —— */
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--pine-300) transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  *::-webkit-scrollbar-track {
+    background: color-mix(in srgb, var(--pine-100) 60%, transparent);
+    border-radius: 99px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: var(--pine-300);
+    border: 3px solid transparent;
+    background-clip: content-box;
+    border-radius: 99px;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background: var(--pine-500);
+    background-clip: content-box;
+  }
+}
+
+@utility num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* —— 纸面背景：颗粒 + 松绿柔光 + 琥珀暖光 —— */
+@utility app-backdrop {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(
+      1100px 620px at 12% -8%,
+      color-mix(in srgb, var(--pine-300) 34%, transparent),
+      transparent 62%
+    ),
+    radial-gradient(
+      880px 520px at 96% 4%,
+      color-mix(in srgb, var(--amber-300) 40%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      760px 620px at 50% 108%,
+      color-mix(in srgb, var(--azure-300) 26%, transparent),
+      transparent 64%
+    );
+  background-attachment: fixed;
+}
+@utility app-grain {
+  &::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.4;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.22'/%3E%3C/svg%3E");
+  }
+}
+html[data-theme="dark"] .app-grain::before {
+  mix-blend-mode: screen;
+  opacity: 0.22;
+}
+
+/* —— 卡片与浮层 —— */
+@utility panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+@utility panel-raised {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+}
+
+/* —— 大按钮：老人可独立操作 —— */
+@utility tap {
+  min-height: 60px;
+  border-radius: var(--radius-lg);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  user-select: none;
+  -webkit-user-select: none;
+}
+@utility press {
+  &:active {
+    transform: scale(0.972);
+  }
+}
+
+/* —— 动效 —— */
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.025);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes haloPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--amber-500) 55%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 14px color-mix(in srgb, var(--amber-500) 0%, transparent);
+  }
+}
+@keyframes sweep {
+  from {
+    transform: translateX(-120%);
+  }
+  to {
+    transform: translateX(320%);
+  }
+}
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -9px, 0);
+  }
+}
+@keyframes pillDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.7);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(2px) scale(1.06);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes sparkOut {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) scale(0.35);
+  }
+}
+@keyframes caret {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes scanline {
+  0% {
+    top: 6%;
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    top: 94%;
+    opacity: 0;
+  }
+}
+
+@utility anim-rise {
+  animation: riseIn calc(420ms * var(--site-motion)) cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@utility anim-pop {
+  animation: popIn calc(340ms * var(--site-motion)) cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@utility anim-halo {
+  animation: haloPulse calc(2100ms * var(--site-motion)) ease-out infinite;
+}
+@utility anim-drift {
+  animation: drift calc(7s * var(--site-motion)) ease-in-out infinite;
+}
+@utility anim-drop {
+  animation: pillDrop calc(420ms * var(--site-motion)) cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@utility anim-caret {
+  animation: caret 1s steps(1) infinite;
+}
+
+@utility stagger-1 {
+  animation-delay: calc(50ms * var(--site-motion));
+}
+@utility stagger-2 {
+  animation-delay: calc(110ms * var(--site-motion));
+}
+@utility stagger-3 {
+  animation-delay: calc(170ms * var(--site-motion));
+}
+@utility stagger-4 {
+  animation-delay: calc(230ms * var(--site-motion));
+}
+@utility stagger-5 {
+  animation-delay: calc(290ms * var(--site-motion));
+}
+
+@utility safe-bottom {
+  padding-bottom: max(env(safe-area-inset-bottom), 0px);
+}
+@utility safe-top {
+  padding-top: max(env(safe-area-inset-top), 0px);
+}
+
+/* 打印 / 导出用药清单 */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+  }
+}

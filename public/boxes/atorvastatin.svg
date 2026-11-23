@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" width="480" height="320" role="img" aria-label="阿托伐他汀钙片药盒示例图">
+  <defs>
+    <linearGradient id="atable" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F2EADB"/><stop offset="1" stop-color="#E0D2B8"/>
+    </linearGradient>
+    <linearGradient id="afront" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFEF9"/><stop offset="1" stop-color="#F3EBDA"/>
+    </linearGradient>
+    <linearGradient id="aside" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#DCCEB2"/><stop offset="1" stop-color="#C0B091"/>
+    </linearGradient>
+    <linearGradient id="aband" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#E8A33D"/><stop offset="1" stop-color="#C97A12"/>
+    </linearGradient>
+    <linearGradient id="afoil" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F1EEE6"/><stop offset="0.5" stop-color="#D3CBBB"/><stop offset="1" stop-color="#B7AE9C"/>
+    </linearGradient>
+    <filter id="asoft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+  </defs>
+
+  <rect width="480" height="320" fill="url(#atable)"/>
+  <g opacity="0.32">
+    <path d="M0 250h480" stroke="#C6B695" stroke-width="2"/>
+    <path d="M0 268h480" stroke="#C6B695" stroke-width="1"/>
+  </g>
+  <ellipse cx="238" cy="256" rx="150" ry="24" fill="#8A7853" opacity="0.34" filter="url(#asoft)"/>
+
+  <path d="M300 92l58-22v142l-58 20z" fill="url(#aside)"/>
+  <path d="M300 92l58-22v26l-58 21z" fill="#A9660C"/>
+  <path d="M118 70h182v162H118z" fill="url(#afront)"/>
+  <path d="M118 70h182v40H118z" fill="url(#aband)"/>
+  <path d="M118 70l58-22h182l-58 22z" fill="#F2B85C"/>
+  <text x="132" y="97" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="700" fill="#3A2607">处方药 · 调血脂</text>
+  <text x="132" y="146" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="27" font-weight="800" fill="#2A2415">阿托伐他汀钙片</text>
+  <text x="132" y="172" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="15" fill="#6E6552">Atorvastatin Calcium Tablets</text>
+  <rect x="132" y="186" width="92" height="26" rx="6" fill="#FBEED4"/>
+  <text x="143" y="204" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="700" fill="#B9760F">20 mg</text>
+  <text x="234" y="204" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="15" fill="#6E6552">7 片 / 盒</text>
+  <text x="132" y="226" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#877D67">每日 1 次，每次 1 片，睡前口服</text>
+
+  <g transform="translate(322 176) rotate(-9)">
+    <rect x="0" y="0" width="118" height="72" rx="9" fill="url(#afoil)"/>
+    <g fill="#FAF7F0" stroke="#A79C86" stroke-width="1.2">
+      <ellipse cx="22" cy="22" rx="12" ry="10"/><ellipse cx="59" cy="22" rx="12" ry="10"/>
+      <ellipse cx="96" cy="22" rx="12" ry="10"/><ellipse cx="22" cy="52" rx="12" ry="10"/>
+      <ellipse cx="59" cy="52" rx="12" ry="10"/><ellipse cx="96" cy="52" rx="12" ry="10"/>
+    </g>
+    <g fill="#FFFFFF" stroke="#DED6C6">
+      <ellipse cx="22" cy="22" rx="7" ry="5.5"/><ellipse cx="59" cy="22" rx="7" ry="5.5"/>
+      <ellipse cx="96" cy="22" rx="7" ry="5.5"/><ellipse cx="22" cy="52" rx="7" ry="5.5"/>
+    </g>
+  </g>
+
+  <g transform="translate(56 168)">
+    <path d="M0 0h44l-6 78H6z" fill="#E4EDF2" opacity="0.85"/>
+    <path d="M3 26h38l-4 52H7z" fill="#C3DCE8" opacity="0.9"/>
+    <ellipse cx="22" cy="0" rx="22" ry="6" fill="#F0F6F9"/>
+    <path d="M8 8l-3 62" stroke="#FFFFFF" stroke-width="3" opacity="0.7" stroke-linecap="round"/>
+  </g>
+</svg>

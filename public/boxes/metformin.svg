@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" width="480" height="320" role="img" aria-label="盐酸二甲双胍片药盒示例图">
+  <defs>
+    <linearGradient id="mtable" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E8EEF2"/><stop offset="1" stop-color="#CFDBE3"/>
+    </linearGradient>
+    <linearGradient id="mfront" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E9F0F6"/>
+    </linearGradient>
+    <linearGradient id="mside" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#C6D3DC"/><stop offset="1" stop-color="#A8B8C4"/>
+    </linearGradient>
+    <linearGradient id="mband" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2E6BD6"/><stop offset="1" stop-color="#1F52B0"/>
+    </linearGradient>
+    <linearGradient id="mfoil" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#EEF2F5"/><stop offset="0.5" stop-color="#C8D2DA"/><stop offset="1" stop-color="#AEBAC4"/>
+    </linearGradient>
+    <filter id="msoft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+  </defs>
+
+  <rect width="480" height="320" fill="url(#mtable)"/>
+  <g opacity="0.3">
+    <path d="M0 252h480" stroke="#A9BAC6" stroke-width="2"/>
+    <path d="M0 270h480" stroke="#A9BAC6" stroke-width="1"/>
+  </g>
+  <ellipse cx="240" cy="258" rx="152" ry="24" fill="#5E7382" opacity="0.32" filter="url(#msoft)"/>
+
+  <path d="M302 94l56-22v140l-56 20z" fill="url(#mside)"/>
+  <path d="M302 94l56-22v26l-56 21z" fill="#1B4494"/>
+  <path d="M120 72h182v160H120z" fill="url(#mfront)"/>
+  <path d="M120 72h182v40H120z" fill="url(#mband)"/>
+  <path d="M120 72l56-22h182l-56 22z" fill="#4C82E4"/>
+  <text x="134" y="99" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="700" fill="#EAF1FF">处方药 · 内分泌</text>
+  <text x="134" y="148" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="28" font-weight="800" fill="#16233A">盐酸二甲双胍片</text>
+  <text x="134" y="174" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="15" fill="#5A6A80">Metformin Hydrochloride Tablets</text>
+  <rect x="134" y="188" width="92" height="26" rx="6" fill="#DFE9FB"/>
+  <text x="145" y="206" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="700" fill="#1F52B0">0.5 g</text>
+  <text x="236" y="206" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="15" fill="#5A6A80">20 片 / 盒</text>
+  <text x="134" y="228" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#71809A">每日 3 次，每次 1 片，餐中或餐后</text>
+
+  <g transform="translate(324 178) rotate(-8)">
+    <rect x="0" y="0" width="120" height="74" rx="9" fill="url(#mfoil)"/>
+    <g fill="#F7F9FB" stroke="#94A3AF" stroke-width="1.2">
+      <ellipse cx="24" cy="23" rx="13" ry="10"/><ellipse cx="60" cy="23" rx="13" ry="10"/>
+      <ellipse cx="96" cy="23" rx="13" ry="10"/><ellipse cx="24" cy="53" rx="13" ry="10"/>
+      <ellipse cx="60" cy="53" rx="13" ry="10"/><ellipse cx="96" cy="53" rx="13" ry="10"/>
+    </g>
+    <g fill="#FFFFFF" stroke="#D6DEE5">
+      <ellipse cx="24" cy="23" rx="8" ry="5.5"/><ellipse cx="60" cy="23" rx="8" ry="5.5"/>
+      <ellipse cx="96" cy="23" rx="8" ry="5.5"/><ellipse cx="24" cy="53" rx="8" ry="5.5"/>
+      <ellipse cx="60" cy="53" rx="8" ry="5.5"/>
+    </g>
+  </g>
+
+  <g transform="translate(58 170)">
+    <path d="M0 0h44l-6 78H6z" fill="#DCEAF2" opacity="0.85"/>
+    <path d="M3 26h38l-4 52H7z" fill="#BBD9E8" opacity="0.9"/>
+    <ellipse cx="22" cy="0" rx="22" ry="6" fill="#EDF5F9"/>
+    <path d="M8 8l-3 62" stroke="#FFFFFF" stroke-width="3" opacity="0.7" stroke-linecap="round"/>
+  </g>
+</svg>

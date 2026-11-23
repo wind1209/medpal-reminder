@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" width="480" height="320" role="img" aria-label="苯磺酸氨氯地平片药盒示例图">
+  <defs>
+    <linearGradient id="table" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#EFE6D6"/><stop offset="1" stop-color="#DCCFB8"/>
+    </linearGradient>
+    <linearGradient id="front" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFDF8"/><stop offset="1" stop-color="#F0E7D8"/>
+    </linearGradient>
+    <linearGradient id="side" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#D8CDB9"/><stop offset="1" stop-color="#BEB29C"/>
+    </linearGradient>
+    <linearGradient id="band" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#D9483B"/><stop offset="1" stop-color="#B32E22"/>
+    </linearGradient>
+    <linearGradient id="foil" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E7EDF2"/><stop offset="0.5" stop-color="#C3CED8"/><stop offset="1" stop-color="#A9B6C2"/>
+    </linearGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+  </defs>
+
+  <rect width="480" height="320" fill="url(#table)"/>
+  <g opacity="0.35">
+    <path d="M0 250h480" stroke="#C4B69E" stroke-width="2"/>
+    <path d="M0 268h480" stroke="#C4B69E" stroke-width="1"/>
+  </g>
+  <ellipse cx="238" cy="256" rx="150" ry="24" fill="#8C7B60" opacity="0.35" filter="url(#soft)"/>
+
+  <!-- 药盒侧面 -->
+  <path d="M300 92l58-22v142l-58 20z" fill="url(#side)"/>
+  <path d="M300 92l58-22v26l-58 21z" fill="#9E3A2E"/>
+  <!-- 药盒正面 -->
+  <path d="M118 70h182v162H118z" fill="url(#front)"/>
+  <path d="M118 70h182v40H118z" fill="url(#band)"/>
+  <path d="M118 70l58-22h182l-58 22z" fill="#E8635A"/>
+  <text x="132" y="97" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="700" fill="#FFF3EE">处方药 · 心血管</text>
+  <text x="132" y="146" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="27" font-weight="800" fill="#1B2A24">苯磺酸氨氯地平片</text>
+  <text x="132" y="172" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="15" fill="#5F6E66">Amlodipine Besylate Tablets</text>
+  <rect x="132" y="186" width="86" height="26" rx="6" fill="#FBE3DF"/>
+  <text x="143" y="204" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="700" fill="#B32E22">5 mg</text>
+  <text x="228" y="204" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="15" fill="#5F6E66">7 片 / 盒</text>
+  <text x="132" y="226" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#7A877F">每日 1 次，每次 1 片，口服</text>
+
+  <!-- 铝塑板 -->
+  <g transform="translate(322 176) rotate(-9)">
+    <rect x="0" y="0" width="118" height="72" rx="9" fill="url(#foil)"/>
+    <g fill="#F6F8FA" stroke="#93A2AE" stroke-width="1.2">
+      <ellipse cx="22" cy="22" rx="12" ry="10"/><ellipse cx="59" cy="22" rx="12" ry="10"/>
+      <ellipse cx="96" cy="22" rx="12" ry="10"/><ellipse cx="22" cy="52" rx="12" ry="10"/>
+      <ellipse cx="59" cy="52" rx="12" ry="10"/><ellipse cx="96" cy="52" rx="12" ry="10"/>
+    </g>
+    <g fill="#FFFFFF" stroke="#D5DDE4">
+      <ellipse cx="22" cy="22" rx="7" ry="5.5"/><ellipse cx="59" cy="22" rx="7" ry="5.5"/>
+      <ellipse cx="96" cy="22" rx="7" ry="5.5"/><ellipse cx="22" cy="52" rx="7" ry="5.5"/>
+    </g>
+  </g>
+
+  <!-- 水杯 -->
+  <g transform="translate(56 168)">
+    <path d="M0 0h44l-6 78H6z" fill="#DCEAF2" opacity="0.85"/>
+    <path d="M3 26h38l-4 52H7z" fill="#BBD9E8" opacity="0.9"/>
+    <ellipse cx="22" cy="0" rx="22" ry="6" fill="#EDF5F9"/>
+    <path d="M8 8l-3 62" stroke="#FFFFFF" stroke-width="3" opacity="0.7" stroke-linecap="round"/>
+  </g>
+</svg>
