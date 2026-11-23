@@ -1,6 +1,7 @@
 # 慢病用药提醒助手
 
 线上地址：<https://medpal-reminder-j3e8dmby0zm.qoder.zone>（已公开访问）
+代码仓库：<https://github.com/wind1209/medpal-reminder>（Public）
 
 面向高血压、糖尿病、高血脂等慢病人群（尤其是长辈）的用药提醒 PWA。
 一条主链路：**拍照识别药盒 → 核对信息 → 生成用药计划 → 到点提醒 → 服药打卡 → 历史统计**，另附用药问答 Agent。
@@ -228,23 +229,32 @@ npm run build
 然后重新 `prepare_site`（这次带上 `secretNames`）并发布一个版本，让依赖登记与同步生效。
 密钥值只在站点设置里填写，不要写进代码、命令行或聊天记录。
 
-### 放到公开 GitHub 仓库
+### 公开 GitHub 仓库
 
-本目录已执行过 `git init` 与 `git add .`：132 个文件已暂存，其中不含 `.env`、`node_modules/`、
-`dist/` 或任何密钥值（`.env.example` 全部为空占位）。**尚未提交**——本机 Git 没有配置提交者身份，
-需要先设置你自己的姓名与邮箱（这一步不要用别人的身份）：
+代码已推送到公开仓库：**<https://github.com/wind1209/medpal-reminder>**（分支 `main`）。
+
+仓库里共 132 个文件，不含 `.env`、`node_modules/`、`dist/` 或任何密钥值（`.env.example` 全部为空占位）。
+提交者身份用 `git -c user.name=… -c user.email=…` 一次性传入，没有修改本机 git 配置；
+邮箱用的是 GitHub noreply 地址，真实邮箱不会出现在提交记录里。
+
+后续改动照常提交推送：
 
 ```sh
-git config user.name "你的名字"
-git config user.email "你的邮箱"
-git commit -m "慢病用药提醒助手：拍照识别到服药打卡的完整链路"
-git branch -M main
+git add <改动的文件>
+git commit -m "说明这次改了什么"
+git push
+```
+
+如果你 fork 或另建仓库，先在 GitHub 网页上新建一个**空**仓库（不要勾选生成 README / .gitignore / license），
+再执行：
+
+```sh
 git remote add origin https://github.com/<你的账号>/<仓库名>.git
 git push -u origin main
 ```
 
 推送前确认：`git status` 里**没有** `.env`；`.gitignore` 已排除 `node_modules/`、`dist/`、`.env*`（保留 `.env.example`）。
-本机若没有 `gh`，先在 GitHub 网页上新建一个空仓库（不要勾选生成 README），再执行上面的 `remote add` 与 `push`。
+首次推送时 Git Credential Manager 会弹出 GitHub 授权窗口，由本人完成登录。
 
 ---
 
@@ -265,6 +275,8 @@ git push -u origin main
   未配密钥时 `POST /ocr`、`POST /chat` 均返回 503 `service_not_configured`，错误方法返回 405，未知路由 404；
   示例药盒 → 生成计划 → 通知深链 `/?dose=` → 提醒弹层 → 打卡（余量 30→29、记录写入）全链路通过；
   问答离线答案带「离线知识库」标注与就医提示；重置全部数据 → 撤销可完整恢复。
+- **已推送到公开 GitHub 仓库** `wind1209/medpal-reminder`：`git ls-remote` 与本地 `HEAD` 一致，
+  仓库页面可见全部 132 个文件与渲染后的 README；跟踪文件里不含 `.env`、`node_modules/`、`dist/` 或密钥值。
 
 未执行（原因）：
 
@@ -274,9 +286,6 @@ git push -u origin main
   Function 逻辑通过 `npm run dev:function` 的 Node 等价服务在本地跑通，并已在线上验证路由与降级行为。
 - 浏览器截图能力在当前环境不可用（返回 `NATIVE_BROWSER_VIEWPORT_UNAVAILABLE`），
   移动端布局改用同源窄视口 iframe 实测尺寸与可点击性，不是截图目测。
-- **未创建 GitHub 仓库、未提交、未推送**：本机没有安装 `gh`，也没有可用的 GitHub 凭据；
-  Git 还缺少提交者身份，按约定不代改 git config、不编造作者。仓库已初始化并暂存好文件，
-  按第 8 节设置身份后即可提交与推送。
 - 通知授权在当前测试浏览器里是「已被拒绝」状态，因此**真实系统通知弹窗与点击跳转未实测**；
   应用内提醒、通知深链参数解析、Service Worker 消息回路已用真实代码路径验证。
 - 安装到手机主屏幕后的离线推送表现未在真机上验证。
